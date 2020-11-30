@@ -10,6 +10,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -103,11 +104,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(myLocation, zoom));
     }
 
-    private void addMarkerAndZoom(MyLocation location, String title, int zoom) {
-        LatLng myLocation = new LatLng(location.getLat(), location.getLon());
-        mMap.addMarker(new MarkerOptions().position(myLocation).title(title));
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(myLocation, zoom));
-    }
 
     public static boolean hasPermissions(Context context, String[] permissions) {
         for (String permission : permissions) {
@@ -192,8 +188,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         // check if the request code is same as what is passed  here it is 2
         if(requestCode==2)
         {
+            Location loc = new Location(LocationManager.GPS_PROVIDER);
             MyLocation ml = (MyLocation) data.getSerializableExtra("location");
-            addMarkerAndZoom(ml,ml.getName()+" : "+ ml.getDescription(),15);
+            loc.setLatitude(ml.getLat());
+            loc.setLongitude(ml.getLon());
+            addMarkerAndZoom(loc,ml.getName() + " -> "+ ml.getDescription(),15);
 
         }
     }
