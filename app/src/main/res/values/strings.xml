@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">AndroidGmaps</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="google_maps_key">AIzaSyA_DqveCgtdYKQF6dp4qm9R3_f4bCtUQrE</string>
+    <string name="address">Address</string>
+    <string name="find_address">Find Address!</string>
+    <string name="no_location_data_provided">No location data provided</string>
+    <string name="no_address_found">No address Found</string>
+    <string name="address_found">Address Found</string>
+    <string name="service_not_available">Service not available</string>
+    <string name="invalid_lat_long_used">Invalid Lat-Long used</string>
+    <string name="newLocationtitle">New Location!</string>
+    <string name="formName">Location Name</string>
+    <string name="formDescription">Location Description</string>
+    <string name="Longitud">Longitude</string>
+    <string name="Latitud">Latitude</string>
+    <string name="Senddata">Send!</string>
+</resources>
